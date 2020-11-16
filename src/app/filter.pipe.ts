@@ -1,12 +1,15 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'filter'
+  name: "filter"
 })
 export class FilterPipe implements PipeTransform {
-
-  transform(value: [], property: string, trim: string): string {
-    return null;
+  transform(items: [], property: string, trim: string): any[] {
+    if (!property) {
+      return items;
+    }
+    return items.map(element => {
+      element.property.toLowerCase().includes(trim);
+    });
   }
-
 }

@@ -1,7 +1,9 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
 <p>{{string | capitalize}}</p>
 <p>{{string | smartTruncate : 20}}</p>
 <p>{{str | smartTruncate : 20}}</p>
+<ul>
+	<li *ngFor="let food of foods" | filter>
+		<img [src]="food.image" style=" width:100px; height:auto">
+		{{food.name}},{{food.calories}},{{food.quantity}}
+	</li>
+</ul>
