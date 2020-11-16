@@ -1,30 +1,30 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'smartTruncate'
+  name: "smartTruncate"
 })
 export class SmartTruncatePipe implements PipeTransform {
-
   transform(value: string, charNumber?: number): string {
-    
     let str = value;
     let arg1 = isNaN(charNumber) ? 1 : charNumber;
-    let arr = str.split(' ');
-    let truncate='';
-    for(let i = 0; i<arg1;i++){
-      truncate+=str[i];
+    let arr = str.split(" ");
+    let truncate = "";
+    if (value.length < arg1) {
+      return "...";
     }
-    let truncateArr = truncate.split(' ');
-    while(truncateArr.includes('')){
-      truncateArr.splice(truncateArr.indexOf(''),1);
+    for (let i = 0; i < arg1; i++) {
+      truncate += str[i];
     }
-    if(arr[truncateArr.length-1] == truncateArr[truncateArr.length-1]){
-      return truncate+'...';
+    let truncateArr = truncate.split(" ");
+    while (truncateArr.includes("")) {
+      truncateArr.splice(truncateArr.indexOf(""), 1);
     }
-    else{
-      truncateArr.pop(); 
-      truncate=truncateArr.join(' ');
-      return truncate+'...';
+    if (arr[truncateArr.length - 1] == truncateArr[truncateArr.length - 1]) {
+      return truncate + "...";
+    } else {
+      truncateArr.pop();
+      truncate = truncateArr.join(" ");
+      return truncate + "...";
     }
   }
 }
