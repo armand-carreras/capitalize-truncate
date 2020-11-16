@@ -8,8 +8,8 @@ export class FilterPipe implements PipeTransform {
     if (!property) {
       return items;
     }
-    // return items.map(element => {
-    //   element.property.toLowerCase().includes(trim);
-    // });
+    return items.filter(element => {
+      element.property.toLowerCase().includes(trim);
+    });
   }
 }
