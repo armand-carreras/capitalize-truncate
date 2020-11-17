@@ -6,7 +6,8 @@ import { Component, VERSION } from "@angular/core";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  string =
+  hola = "Di hola";
+  strin =
     "Duis mollit qui velit ipsum fugiat cupidatat. Non labore commodo sint enim do sunt deserunt eu esse deserunt aliqua magna ea est. Nulla esse ex fugiat consequat cillum cillum mollit do sunt nostrud.";
   str = "hola mundo";
   foods = [
